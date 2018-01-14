@@ -15,7 +15,7 @@ function getContentType(t) {
   header["Access-Control-Allow-Headers"] = "Origin, X-Requested-With, Content-Type, Accept";
 
   // Cache
-  header["Cache-Control"] = "public, max-age=604800";
+  header["Cache-Control"] = "public, max-age=3600";
 
   // request specific headers
   if (t === "png") {
@@ -34,9 +34,14 @@ function getContentType(t) {
 
 // tile cannon
 app.get('/:s/:z/:x/:y.:t', function(req, res) {
+  //console.log(`fileName:${p.join(tilesDir, req.params.s + '.mbtiles')}`);
+  //console.log(`new request: ${req.params.z}/${req.params.x}/${req.params.y}`);
   new MBTiles(p.join(tilesDir, req.params.s + '.mbtiles'), function(err, mbtiles) {
     mbtiles.getTile(req.params.z, req.params.x, req.params.y, function(err, tile, headers) {
       if (err) {
+        //console.log("in error");
+        //console.log(err);
+        
         let header = {};
         header["Access-Control-Allow-Origin"] = "*";
         header["Access-Control-Allow-Headers"] = "Origin, X-Requested-With, Content-Type, Accept";
