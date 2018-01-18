@@ -1,7 +1,11 @@
 var express = require("express"),
     app = express(),
     MBTiles = require('mbtiles'),
-    p = require("path");
+    p = require("path"),
+    compression = require("compression"),
+    helmet = require('helmet');;
+    app.use(compression()); //Compress all routes
+    app.use(helmet());
 
 // path to the mbtiles; default is the server.js directory
 var tilesDir = __dirname;
@@ -34,14 +38,9 @@ function getContentType(t) {
 
 // tile cannon
 app.get('/:s/:z/:x/:y.:t', function(req, res) {
-  //console.log(`fileName:${p.join(tilesDir, req.params.s + '.mbtiles')}`);
-  //console.log(`new request: ${req.params.z}/${req.params.x}/${req.params.y}`);
   new MBTiles(p.join(tilesDir, req.params.s + '.mbtiles'), function(err, mbtiles) {
     mbtiles.getTile(req.params.z, req.params.x, req.params.y, function(err, tile, headers) {
-      if (err) {
-        //console.log("in error");
-        //console.log(err);
-        
+      if (err) {        
         let header = {};
         header["Access-Control-Allow-Origin"] = "*";
         header["Access-Control-Allow-Headers"] = "Origin, X-Requested-With, Content-Type, Accept";
