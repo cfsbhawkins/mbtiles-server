@@ -8,7 +8,7 @@ var express = require("express"),
     app.use(helmet());
 
 // path to the mbtiles; default is the server.js directory
-var tilesDir = __dirname;
+var tilesDir = __dirname + '/tiles/';
 
 // Set return header
 function getContentType(t) {

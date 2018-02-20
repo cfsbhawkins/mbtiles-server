@@ -6,13 +6,9 @@ This is a fork of Christopher Helm's awesome [mbtiles-server](https://github.com
 * The first path argument is the mbtiles file, so multiple mbtiles tile sets can be served with the same service.
 * Vector tiles are supported.
 * Some niceties on the return header (CORS, expiration, etc.).
+* Docker Image
 
 To get it cranking, drop a mbtiles file in the server folder and:
-
-``` bash
-npm install
-node index.js
-```
 
 Requests look like this:
 
