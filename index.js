@@ -37,7 +37,7 @@ function getContentType(t) {
 }
 
 // tile cannon
-app.get('/tiles/:s/:z/:x/:y.:t', function(req, res) {
+app.get('/:s/:z/:x/:y.:t', function(req, res) {
   new MBTiles(p.join(tilesDir, req.params.s + '.mbtiles'), function(err, mbtiles) {
     mbtiles.getTile(req.params.z, req.params.x, req.params.y, function(err, tile, headers) {
       if (err) {        

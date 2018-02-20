@@ -14,5 +14,5 @@ Map a volume for the tiles to your local docker host such as
 Requests look like this:
 
 ``` text
-http://localhost/tiles/<mbtiles-name>/3/1/2.png.
+http://localhost/<mbtiles-name>/3/1/2.png.
 ```
