@@ -10,13 +10,13 @@ WORKDIR /app
 COPY . /app/
 
 # Install app dependencies
-RUN npm install
+RUN npm install --only=production
 
 # Bundle app source
 COPY . .
 
 # Expose ports
-EXPOSE 3000
+EXPOSE 80
 
 VOLUME ["/app/tiles"]
 

@@ -57,5 +57,6 @@ app.get('/:s/:z/:x/:y.:t', function(req, res) {
 });
 
 // start up the server
-console.log('Listening on port: ' + process.env.PORT || 3000);
-app.listen(process.env.PORT || 3000);
+console.log('Starting Tile Server');
+console.log('Listening on port: 80');
+app.listen(80);
