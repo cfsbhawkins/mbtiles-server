@@ -187,4 +187,4 @@ function findFilesInDir(startPath, filter) {
 // start up the server
 console.log('Starting Tile Server');
 console.log('Listening on port: 80');
-app.listen(8080);
+app.listen(80);
