@@ -11,3 +11,5 @@ build.push.sh
 **/*.map
 **/.DS_Store
 **/.gitignore
+tiles
+.env

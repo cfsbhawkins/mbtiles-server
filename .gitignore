@@ -1,3 +1,4 @@
 yarn.lock
-#*.mbtiles
+*.mbtiles
 node_modules
+tiles

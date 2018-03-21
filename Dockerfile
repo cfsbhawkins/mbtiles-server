@@ -10,6 +10,7 @@ WORKDIR /app
 COPY . /app/
 
 # Install app dependencies
+RUN yarn
 RUN npm install --only=production
 
 # Bundle app source
@@ -21,4 +22,4 @@ EXPOSE 80
 VOLUME ["/app/tiles"]
 
 # Run when container launches
-CMD [ "node", "index.js" ]
+CMD [ "yarn", "start" ]
